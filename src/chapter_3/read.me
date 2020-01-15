@@ -11,4 +11,59 @@ chapter 3
         例子：
             man 1 hostname / man hostname 1
 
+3。6 处理文件
+     创建文件 touch test
+     复制文件 cp [source] [destination]
+
+     例子：
+        cp -R Scripts/  Mod_Scripts   # 将目录Script下的文件都复制到Mod_Scripts下
+        cp -R *script  Mod_Scripts/   # 将所有以script结尾的文件复制到Mod_Script目录下
+
+3.7 连接文件（快捷方式）
+    ln -s [original_file] [symbolic_file] #创建软连接
+    ls -i [file]   #查看文件的inode
+
+3.8 重命名文件/移动文件
+    mv a b  # 将文件名从a变到b
+    mv a Mod_Script/ # 将文件移动到Mod_Script文件夹下
+    mv Mod_Script
+    mv /home/fzll /home/chris/fell  # 移动并重命名
+    mv Mod_Scripts Old_Scripts # 重命名目录
+    mv Mod_Scripts /home/Old_Scripts/ # 将目录移动到/home/Old_Scripts/下
+
+3.9 删除文件
+    rm [file] # 删除单个文件
+
+3.10 处理目录
+    mkdir new_dir   #创建目录
+    mkdir -p new_dir/sub_dir/under_dir # 子目录不存在的情况下
+
+    rm -rf dir/*    # 删除目录下的所有文件，保留这个目录
+    rm -rf dir/     # 删除这个目录
+
+3.11 查看文件内容
+    file [file] # 查看文件类型
+
+    cat命令
+        cat -n [file] # 显示行号
+        cat -b [file] # 只给有文本的行加上行号
+        cat -T [file] # 显示非打印字符 display non-print characters  注意：这里面有一个需要注意的东西，命令选项大小写 意味者功能的相反，
+        t，(T)shift+t，大小写之间是非的关系，正好对应着功能的相反
+
+        例如：cat -T # 显示非打印字符
+             cat -t # 不显示非打印字符
+
+
+    more/less 命令
+
+3.12 tail/head
+    tail命令
+       tail [file]  #显示文件最后10行的结果
+       tail -[num] [file] # 显示文件最后num行的结果
+       tail -f [file]  # 这个比较实用，-f参数是tail命令的一个突出特性。它允许你在其他进行实用该文件时查看文件的内容。tail命令保持活动状态，
+       并不断显示添加到文件中的内容。这是实时监测系统日志的绝妙方式。
+
+    head命令
+       head [file] # 默认显示文件前10行的结果
+       head -[num] [file] # 显示文件前num行的结果
 
