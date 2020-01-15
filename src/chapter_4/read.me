@@ -1,2 +1,76 @@
 chapter 4
 
+命令参数：
+    Unix风格  -
+    GNU风格   --
+    BSD     不加波折线
+
+4。1 监测程序
+    ps -ef
+    UID 启动这些进程的用户
+    pid 进程的进程id
+    ppid 父进程的进程号
+    c 进程生命周期中的cpu利用率
+    stime  进程启动时的系统时间
+    tty 进程启动时的终端设备
+    time 运行进程需要的累计cpu时间
+    cmd 启动的程序名称
+
+    ps a
+
+4.2 结束进程
+    linux中，进程之间通过信号来通信。进程的信号就是预定好的一个消息，进程能识别它并决定忽略还是作出反应。进程能识别它并决定忽略还是作出反应。
+    进程如何处理信号是由开发人员通过编程来决定的。大多数编写完善的程序都能接收和处理标准unix信号。 （信号驱动  signal-driven）
+
+    信号         名称            描述
+    1           HUP             挂起
+    2           INT             中断
+    3           QUIT            结束运行
+    9           KILL            无条件终止
+
+    kill [pid]  # 尽可能让进程停止
+
+    kill -s [num] [pid] / kill -s [SIG] [pid] 例如：kill -9 6543
+
+    killall [pname] # 结束所有名称[pname] 的进程
+
+
+4.3 监测磁盘空间
+    df命令 display free disk space
+        df # 查看所有磁盘的使用情况
+        df -h # 用M，G代替字节
+
+
+    du命令 display disk usage statistics , 显示当前目录下所有文件，目录和子目录的磁盘使用情况
+
+    du -c #显示所有已列出文件的总大小 。在全部输出尾部有一个总大小总计。有一个total列
+    du -h # 用M，G代替字节
+    du -s # summarize ，显示总计 。只是显示总计，而不会显示当前目录下每个文件，目录和子目录磁盘的使用情况
+
+    du -sh * # 显示当前目录下，每个目录/文件 的总大小情况
+  例如：
+    ➜  du -sh *
+     10M	apache-maven-3.6.2
+     40M	apache-tomcat-8.5.47
+
+  例如：
+     du -sh    #只显示当前目录使用情况的总计
+
+4.4 处理数据
+       sort -n [file] # 把文件里面的每一行当作数字，然后排序
+       sort -t [seperator] -k [file_num] [file] # -t指定字段分隔符 -k 指定要比较的第几个字段
+       例子：
+         sort -t ':' -k 3  -n /etc/passwd
+
+4.5 搜索数据
+    grep命令      grep [options] pattern [file]
+
+    grep -v [patten] [file] # 反向搜索
+    grep -n [patten] [file] # 打印出匹配的行号
+    grep -e [pattern1] -e [pattern2] [file]  # 匹配多个模式
+
+
+    grep [pattern] [file] # 其中pattern可以是正则表达式形式
+
+
+4.6 压缩数据
