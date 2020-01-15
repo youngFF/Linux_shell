@@ -1,0 +1,33 @@
+1.为什么叫命令行(command line)
+
+这个要从Linux诞生开始说起，刚开始的时候登陆Linux系统是通过终端。从终端上面输入一行，然后敲击回车。
+shell解释器就开始处理这个命令，然后返回结果。用户从输入命令开始，到回车结束，这里面的内容就是一个
+命令行（command line），不管中间输入多少内容。
+
+shell解释器读取一个命令行，返回结果。然后读取下一个命令行，再返回结果。然后重复这个动作。
+
+2。shell脚本
+
+shell脚本可以看成是许多命令行的组合，shell解释器从头到尾解释shell脚本里面的命令行。其中if，while
+for，case等结构可以看成一个命令行。
+
+例如：
+#!/bin/bash
+
+cd ..  # command line 1
+ls -aF # command line 2
+pwd ; ls  # command line 3
+
+if [-n $home];then
+    echo "hello"
+fi   # command line 4  if结构
+
+
+
+
+
+
+
+
+
+
